@@ -1,5 +1,1 @@
-from .config import *
-from pyrogram import filters
-
-BANNED_USERS = filters.user([])
-adminlist = {}
+from .config import *  # ENV'den çeken basit konfig
