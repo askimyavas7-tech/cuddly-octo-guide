@@ -2,11 +2,12 @@ import logging
 import sys
 
 def setup_logging(level: str = "INFO"):
-    logger = logging.getLogger("ArchMusic")
+    logger = logging.getLogger()
     if logger.handlers:
-        return logger
+        return logging.getLogger("ArchMusic")
     logger.setLevel(getattr(logging, level.upper(), logging.INFO))
-    handler = logging.StreamHandler(sys.stdout)
-    handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s", "%H:%M:%S"))
-    logger.addHandler(handler)
-    return logger
+    h = logging.StreamHandler(sys.stdout)
+    fmt = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s", "%H:%M:%S")
+    h.setFormatter(fmt)
+    logger.addHandler(h)
+    return logging.getLogger("ArchMusic")
