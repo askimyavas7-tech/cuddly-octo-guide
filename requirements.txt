@@ -13,9 +13,8 @@ pyyaml
 requests
 spotipy==2.23.0
 tgcrypto>=1.2.5
-python-dotenv==1.0.1
 uvloop==0.17.0
 pyrogram==2.0.106
-py-tgcalls==0.9.7
+pytgcalls==3.0.0.dev22
 youtube-search-python==1.6.6
 yt-dlp
