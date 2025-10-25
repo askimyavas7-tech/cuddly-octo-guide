@@ -1,13 +1,17 @@
+import shutil
 import subprocess
-from .logger import setup_logging
+import logging
 
-log = setup_logging()
+log = logging.getLogger("ArchMusic")
 
-def fetch_updates(upstream: str):
+def fetch_updates(repo_url: str):
+    """Opsiyonel: Git yoksa sessizce geç."""
+    if not shutil.which("git"):
+        log.warning("Git fetch atlandı: sistemde 'git' yok.")
+        return
     try:
-        subprocess.run(["git", "fetch", upstream], check=True)
-        log.info("Git upstream fetched successfully.")
-    except FileNotFoundError:
-        log.warning("Git fetch skipped: 'git' binary not found on this dyno.")
+        subprocess.run(["git", "remote", "set-url", "origin", repo_url], check=True)
+        subprocess.run(["git", "fetch", "origin"], check=True)
+        log.info("Upstream kontrol edildi.")
     except Exception as e:
-        log.warning(f"Git fetch skipped: {e}")
+        log.warning(f"Git fetch atlandı: {e}")
