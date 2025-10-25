@@ -1,51 +1,27 @@
 {
   "name": "Prenses Müzik Pro",
+  "description": "Telegram sesli sohbet müzik botu (Pyrogram + PyTgCalls)",
   "stack": "heroku-24",
   "env": {
-    "API_ID": {
-      "description": "https://my.telegram.org",
-      "required": true
-    },
-    "API_HASH": {
-      "description": "https://my.telegram.org",
-      "required": true
-    },
-    "BOT_TOKEN": {
-      "description": "BotFather token",
-      "required": true
-    },
-    "LOG_GROUP_ID": {
-      "description": "Örn: -100xxxxxxxxxx",
-      "required": true
-    },
-    "OWNER_ID": {
-      "description": "Sahip telegram id",
-      "required": false
-    },
-    "MONGO_DB_URI": {
-      "description": "MongoDB URI (opsiyonel)",
-      "required": false
-    },
-    "SPOTIFY_CLIENT_ID": {
-      "description": "Opsiyonel",
-      "required": false
-    },
-    "SPOTIFY_CLIENT_SECRET": {
-      "description": "Opsiyonel",
-      "required": false
-    },
+    "API_ID": { "description": "https://my.telegram.org/apps", "required": true },
+    "API_HASH": { "description": "https://my.telegram.org/apps", "required": true },
+    "BOT_TOKEN": { "description": "@BotFather bot token", "required": true },
+    "MUSIC_BOT_NAME": { "description": "Bot ismi (örn: Prenses Müzik)", "required": true, "value": "Prenses Müzik" },
+    "LOG_GROUP_ID": { "description": "Log grubu ID (örn -100xxxxxxxxxx)", "required": true },
+    "OWNER_ID": { "description": "Sahip kullanıcı ID (örn: 6366762649)", "required": true },
+    "STRING_SESSION": { "description": "Pyrogram v2 String Session zorunlu!", "required": true },
+    "MONGO_DB_URI": { "description": "MongoDB bağlantısı (opsiyonel)", "required": false },
+    "SPOTIFY_CLIENT_ID": { "description": "Spotify Client ID (opsiyonel)", "required": false },
+    "SPOTIFY_CLIENT_SECRET": { "description": "Spotify Client Secret (opsiyonel)", "required": false },
     "UPSTREAM_REPO": {
-      "description": "Opsiyonel",
-      "required": false
+      "description": "Güncelleme alınacak repo url",
+      "required": false,
+      "value": "https://github.com/askimyavas7-tech/M"
     }
   },
   "buildpacks": [
-    {
-      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
-    },
-    {
-      "url": "heroku/python"
-    }
+    { "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git" },
+    { "url": "heroku/python" }
   ],
   "formation": {
     "worker": {
