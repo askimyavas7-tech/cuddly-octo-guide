@@ -1,0 +1,56 @@
+{
+  "name": "Prenses Müzik Pro",
+  "stack": "heroku-24",
+  "env": {
+    "API_ID": {
+      "description": "https://my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "https://my.telegram.org",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "BotFather token",
+      "required": true
+    },
+    "LOG_GROUP_ID": {
+      "description": "Örn: -100xxxxxxxxxx",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Sahip telegram id",
+      "required": false
+    },
+    "MONGO_DB_URI": {
+      "description": "MongoDB URI (opsiyonel)",
+      "required": false
+    },
+    "SPOTIFY_CLIENT_ID": {
+      "description": "Opsiyonel",
+      "required": false
+    },
+    "SPOTIFY_CLIENT_SECRET": {
+      "description": "Opsiyonel",
+      "required": false
+    },
+    "UPSTREAM_REPO": {
+      "description": "Opsiyonel",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
+}
