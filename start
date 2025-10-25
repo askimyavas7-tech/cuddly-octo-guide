@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-python3 -m ArchMusic
+python3 -m ArchMusic.core.bot
