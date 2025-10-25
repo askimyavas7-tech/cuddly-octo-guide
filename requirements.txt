@@ -15,6 +15,6 @@ spotipy==2.23.0
 tgcrypto>=1.2.5
 uvloop==0.17.0
 pyrogram==2.0.106
-pytgcalls==3.0.0.dev22
+pytgcalls==0.9.7
 youtube-search-python==1.6.6
 yt-dlp
